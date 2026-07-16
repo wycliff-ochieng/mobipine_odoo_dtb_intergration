@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_dtb_invoice_form_inherit" model="ir.ui.view">
+        <field name="name">account.move.form.dtb.stk.button</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="%(action_dtb_stk_payment_wizard)d"
+                        type="action"
+                        string="Send STK Push"
+                        class="btn-primary"
+                        invisible="move_type not in ('out_invoice', 'out_refund') or state != 'posted' or payment_state in ('paid', 'in_payment')"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
