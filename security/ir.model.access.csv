@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_dtb_moja_till_user,dtb.moja.till.user,model_dtb_moja_till,account.group_account_user,1,1,1,0
+access_dtb_moja_till_manager,dtb.moja.till.manager,model_dtb_moja_till,account.group_account_manager,1,1,1,1
+access_dtb_moja_transaction_user,dtb.moja.transaction.user,model_dtb_moja_transaction,account.group_account_user,1,0,0,0
+access_dtb_moja_transaction_manager,dtb.moja.transaction.manager,model_dtb_moja_transaction,account.group_account_manager,1,1,1,1
+access_dtb_stk_payment_wizard_user,dtb.stk.payment.wizard.user,model_dtb_stk_payment_wizard,account.group_account_user,1,1,1,0
