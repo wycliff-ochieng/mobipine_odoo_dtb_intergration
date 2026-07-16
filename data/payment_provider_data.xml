@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="payment_provider_dtb" model="payment.provider">
+            <field name="code">dtb</field>
+            <field name="name">DTB Till Moja</field>
+        </record>
+    </data>
+</odoo>
