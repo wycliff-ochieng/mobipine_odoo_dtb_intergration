@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_dtb_stk_payment_wizard_form" model="ir.ui.view">
+        <field name="name">dtb.stk.payment.wizard.form</field>
+        <field name="model">dtb.stk.payment.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="invoice_id" invisible="1"/>
+                    <field name="amount"/>
+                    <field name="currency_id" invisible="1"/>
+                    <field name="phone_number" placeholder="e.g. 254790999957"/>
+                </group>
+                <group string="Settlement">
+                    <field name="settlement_mode" widget="radio"/>
+                    <field name="till_id"
+                           placeholder="Leave empty to auto-select first active till"
+                           invisible="settlement_mode == 'core_banking'"/>
+                    <field name="account_source"
+                           invisible="settlement_mode != 'core_banking'"/>
+                    <field name="account_id"
+                           placeholder="e.g. 0012870005"
+                           invisible="settlement_mode != 'core_banking'"/>
+                </group>
+                <footer>
+                    <button name="action_send_stk_push" string="Send STK Push"
+                            type="object" class="btn-primary"/>
+                    <button special="cancel" string="Cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_dtb_stk_payment_wizard" model="ir.actions.act_window">
+        <field name="name">Send STK Push</field>
+        <field name="res_model">dtb.stk.payment.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="context">{'default_invoice_id': active_id}</field>
+        <field name="binding_model_id" ref="account.model_account_move"/>
+        <field name="binding_view_types">form</field>
+    </record>
+</odoo>
